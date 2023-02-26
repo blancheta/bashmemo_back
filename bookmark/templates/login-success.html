@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="height:100%; background: rgb(95, 99, 104); color: #00FF00">
+<style>
+
+html, body {
+  height:100%;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.box div {
+  width: 500px;
+  height: 300px;
+}
+</style>
+<div class="box">
+    <div style="text-align: center">
+        <h1>Login Succeeded</h1>
+        <p>You are now authenticated. Copy/Paste your token back in the console and enjoy BashMemo!</p>
+        <h2>{{ token }}</h2>
+    </div>
+</div>
+
+</body>
+</html>
