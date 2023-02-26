@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken'
 ]
 
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV == 'dev':
     print("ENV: " + ENV)
@@ -115,16 +115,17 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd6uac609v9kntl',
-#         'USER': 'wffhksnycivztd',
-#         'PASSWORD': 'eeb3bc729a08f81bb09b9a87994c88957f611ded2e396fca5d6b2248a31e4cbd',
-#         'HOST': 'ec2-52-207-15-147.compute-1.amazonaws.com',
-#         'PORT': '5432'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bashmemo',
+        'USER': 'adminbu',
+        'PASSWORD': 'qsq78xqsx87cs',
+        'HOST': 'localhost',
+        'PORT': ''
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
