@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ae(yo@97+286)!mp3m*i1r91bxidd%t#rj7&jf4pvw)ex4^ai2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "www.bashmemo.com", "bashmemo.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "memo.pythonmentoring.com", "127.0.0.1"]
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -160,7 +160,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
