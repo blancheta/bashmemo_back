@@ -33,6 +33,8 @@ AUTHENTICATION_BACKENDS = [
     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
 ]
 
+CSRF_TRUSTED_ORIGINS = ["https://memo.pythonmentoring.com"]
+
 # Application definition
 
 INSTALLED_APPS = [
