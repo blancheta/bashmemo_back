@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken'
 ]
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV == 'dev':
     print("ENV: " + ENV)
@@ -68,7 +68,7 @@ SOCIALACCOUNT_PROVIDERS = {
         # credentials, or list them here:
         'APP': {
             'client_id': 'Iv1.43563d96811be46b',
-            'secret': '6d759ead6a099e80ce668650e82019e10054dd25',
+            'secret': '4db84aac98489692a46a4a05092617d82ef1a990',
             'key': ''
         }
     }
