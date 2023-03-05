@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken'
 ]
 
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV == 'dev':
     print("ENV: " + ENV)
