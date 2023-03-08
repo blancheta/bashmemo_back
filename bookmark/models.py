@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from django.contrib.auth.models import AbstractUser
 from django.contrib.contenttypes.fields import GenericRelation, GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -54,6 +56,12 @@ class Organisation(models.Model):
 
 
 class User(AbstractUser):
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid4,
+        editable=False
+    )
     email = models.EmailField(unique=True)
     bookmarks = GenericRelation(Bookmark)
     organisation = models.ForeignKey(Organisation, null=True, on_delete=models.SET_NULL)

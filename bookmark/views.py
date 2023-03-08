@@ -1,12 +1,15 @@
 from django.http import JsonResponse
 from django.views.generic import TemplateView
+from django.conf import settings
 from rest_framework import viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView
+from rest_framework.exceptions import AuthenticationFailed
 
-from bookmark.models import Bookmark
-from bookmark.serializers import BookmarkSerializer
+from bookmark.models import Bookmark, User
+from bookmark.serializers import BookmarkSerializer, UserCreateSerializer
 
 
 class BookmarkViewSet(viewsets.ModelViewSet):
@@ -47,3 +50,14 @@ class UserDetailView(APIView):
             "id": user.id,
             "bookmarks": bookmarks
         }})
+
+
+class CreateUserView(CreateAPIView):
+
+    model = User
+    serializer_class = UserCreateSerializer
+
+    def post(self, request, *args, **kwargs):
+        if self.request.GET.get("api_key") != settings.API_ACCESS_API_KEY:
+            raise AuthenticationFailed("Invalid credentials")
+        return super().post(request, args, kwargs)

@@ -11,6 +11,13 @@ class KeywordSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 
+class UserCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'password']
+
+
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:

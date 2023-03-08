@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 
-from bookmark.views import BookmarkViewSet, LoginSuccessView, UserDetailView
+from bookmark.views import BookmarkViewSet, LoginSuccessView, UserDetailView, CreateUserView
 
 router = routers.DefaultRouter()
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('api/', include(router.urls)),
+    path('api/users/', CreateUserView.as_view()),
     path('api/users/self/', UserDetailView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('login/success/', LoginSuccessView.as_view(), name="login_success")
