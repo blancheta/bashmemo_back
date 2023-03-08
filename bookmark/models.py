@@ -57,7 +57,7 @@ class Organisation(models.Model):
 
 class User(AbstractUser):
 
-    id = models.UUIDField(
+    id = models.CharField(
         primary_key=True,
         default=uuid4,
         editable=False
