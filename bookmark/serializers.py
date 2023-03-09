@@ -35,7 +35,7 @@ class UserSerializer(ModelSerializer):
 
 class BookmarkSerializer(ModelSerializer):
 
-    keywords = KeywordSerializer(many=True)
+    keywords = KeywordSerializer(many=True, required=False)
 
     class Meta:
         model = Bookmark
