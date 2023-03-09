@@ -1,31 +1,39 @@
 from django.contrib.contenttypes.models import ContentType
-from rest_framework import serializers
+from rest_framework.serializers import CharField, ModelSerializer
 
 from bookmark.models import Bookmark, Keyword, User
+from rest_framework.authtoken.models import Token
 
 
-class KeywordSerializer(serializers.ModelSerializer):
+class KeywordSerializer(ModelSerializer):
 
     class Meta:
         model = Keyword
         fields = ['name']
 
 
-class UserCreateSerializer(serializers.ModelSerializer):
+class UserCreateSerializer(ModelSerializer):
+    token = CharField(read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password']
+        fields = ['id', 'username', 'email', 'password', 'token']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        token, state = Token.objects.get_or_create(user_id=instance.id)
+        data["token"] = token.key
+        return data
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(ModelSerializer):
 
     class Meta:
         model = User
         fields = ['pk', 'organisation']
 
 
-class BookmarkSerializer(serializers.ModelSerializer):
+class BookmarkSerializer(ModelSerializer):
 
     keywords = KeywordSerializer(many=True)
 
